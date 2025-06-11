@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roblox DefX Studios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* Genel ayarlar */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #fff; /* Beyaz arka plan */
+      color: #333; /* Koyu gri yazı */
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #ff6600; /* Turuncu link rengi */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #e65500; /* Koyu turuncu hover */
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Başlık ve alt başlıklar */
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #222; /* Çok koyu gri */
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 50px;
+    }
+
+    /* Navbar */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ff6600; /* Turuncu logo */
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #333;
+    }
+    nav ul li a:hover {
+      color: #e65500;
+    }
+
+    /* Hero Bölümü */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 80px; /* Navbar için boşluk */
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff6600;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #555;
+    }
+    .btn-primary {
+      background: #ff6600;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 6px 15px rgba(255, 102, 0, 0.6);
+    }
+    .btn-primary:hover {
+      background: #e65500;
+    }
+
+    /* Ürünler Bölümü */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(255,102,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #333;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(230, 85, 0, 0.3);
+    }
+    .product-card img {
+      max-width: 100px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(255,102,0,0.1);
+    }
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #ff6600;
+    }
+    .product-card p {
+      font-size: 0.95rem;
+      color: #555;
+      flex-grow: 1;
+    }
+    .product-card .price {
+      margin-top: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ff6600;
+    }
+
+    /* Hakkımızda Bölümü */
+    .about {
+      background: #fff;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(255,102,0,0.15);
+      margin-top: 50px;
+      color: #333;
+    }
+    .about p {
+      font-size: 1.1rem;
+    }
+
+    /* İletişim Bölümü */
+    .contact {
+      margin-top: 50px;
+      padding-bottom: 50px;
+      color: #333;
+    }
+    .contact p {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .social-links {
+      margin-top: 15px;
+      display: flex;
+      gap: 20px;
+      font-size: 1.4rem;
+    }
+    .social-links a {
+      color: #ff6600;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #e65500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      background: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .btn-primary {
+        width: 100%;
+        padding: 15px;
+      }
+      nav ul {
+        gap: 15px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">DefX Studio</div>
+    <ul>
+      <li><a href="#hero">Anasayfa</a></li>
+      <li><a href="#products">Ürünler</a></li>
+      <li><a href="#about">Hakkımızda</a></li>
+      <li><a href="#contact">İletişim</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero container">
+    <h1>DefX Studio</h1>
+    <p>Daha iyi bir oyun deneyimi için, DefX Studios.</p>
+    <button class="btn-primary" onclick="alert('.gg/FxUYyevgxb Adresinden bize ulaşabilir ve sipariş verebilirsin!')">Bilgi Al</button>
+  </section>
+
+  <!-- Ürünler -->
+  <section id="products" class="container">
+    <h2>Ürünlerimiz</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/100" alt="Ürün 1" />
+        <h3>Ürün Başlığı 1</h3>
+        <p>Buraya ürün açıklaması yazılacak. Ürün özellikleri kısa ve net anlatılabilir.</p>
+        <div class="price">₺XX</div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/100" alt="Ürün 2" />
+        <h3>Ürün Başlığı 2</h3>
+        <p>Buraya ürün açıklaması yazılacak. Ürün özellikleri kısa ve net anlatılabilir.</p>
+        <div class="price">₺XX</div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/100" alt="Ürün 3" />
+        <h3>Ürün Başlığı 3</h3>
+        <p>Buraya ürün açıklaması yazılacak. Ürün özellikleri kısa ve net anlatılabilir.</p>
+        <div class="price">₺XX</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hakkımızda -->
+  <section id="about" class="container about">
+    <h2>Hakkımızda</h2>
+    <p>DefX Studio 2 girişimci tarafından kurulan bir roblox asset satış şirketidir, amacımız oyununuzu daha iyi bir noktaya taşıyıp oyuncuya en iyi oyun deneyimini yaşatamakdır.</p>
+  </section>
+
+  <!-- İletişim -->
+  <section id="contact" class="container contact">
+    <h2>İletişim</h2>
+    <p>E-posta: <a href="mailto:email@example.com">defXstudios@gmail.com</a></p>
+    <p>Discord: <a href="https://discord.gg/FxUYyevgxb" target="_blank">discord.gg/FxUYyevgxb</a></p>
+
+    <div class="social-links">
+      <a href="#" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+      <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 DefX Studio. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>
